@@ -1,0 +1,93 @@
+body{
+    background-color: black;
+    max-height: 100vh;
+    padding-top: 50px;
+}
+
+.main {
+    background-color: white;
+    min-height: 90vh;
+    border-top: 4px solid rgb(252, 175, 9);
+
+}
+
+.logo{
+    width:30%;
+}
+
+.innerdiv{
+    min-height: 60vh;
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 0px 3px 5px rgba(105,105,105,0.6);
+}
+
+.heading{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: rgb(252, 175, 9);
+    
+}
+
+.headingtwo{
+    font-size: 1.2em;
+    font-weight:bolder;
+    color: black;
+
+    
+}
+
+.content{
+    padding-right:70px;
+}
+
+.formdiv{
+    background-color: white;
+    min-height: 50vh;
+    margin-top: 30px;
+    width: 90%;
+    box-shadow: 3px 0px 3px 3px rgba(105,105,105,0.6);
+    border-radius: 5px;
+}
+
+.label{
+    font-size:13px;
+}
+
+.forgot{
+    font-size:13px;
+    color: rgb(252, 175, 9);
+    font-weight: 700;
+}
+
+.forgot:hover{
+    color:black;
+}
+
+
+
+/* media */
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    body{
+        background-color: black;
+        max-height: 100vh;
+        padding-top: 0px;
+    }
+    
+    .innerdiv{
+        min-height: 80vh;
+        background-color: white;
+        margin-top: 30px;
+        border-radius: 15px;
+        box-shadow: 5px 0px 3px 5px rgba(105,105,105,0.6);
+    }
+
+    .buttondiv{
+        margin-top: 30px;
+    }
+ 
+  }
