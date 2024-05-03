@@ -9,6 +9,12 @@ body{
     
 }
 
+.myflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .main {
    
     min-height: 90vh;

